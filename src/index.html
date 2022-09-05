@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic stuff</title>
+</head>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: fit-content;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<body>
+  <h>Lab 1</h>
+  <div class="container">
+    <div class="grid">
+      <div>
+        username:
+      </div>
+      <div>
+        <!-- 1. The necessity of "type" attribute for inout tags -->
+        <!-- it is used to assign a specific input type, password replaces the user input with dots -->
+        <input type="text" placeholder="username" />
+      </div>
+      <div>
+        password:
+      </div>
+      <div>
+        <input type="password" placeholder="password" />
+      </div>
+      <div>
+        <input type="button" value="login" />
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
