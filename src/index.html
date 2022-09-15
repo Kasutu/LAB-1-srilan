@@ -9,42 +9,91 @@
 </head>
 
 <style>
-  .grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    width: fit-content;
+  .container {
+    padding: 50px;
+    position: absolute;
   }
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .buttonContainer {
+    float: right;
+  }
+
+  .child {
+    margin: 5px;
+  }
+
+  .form {
+    background-color: #d0ebf7;
+    border-color: #4287f5;
+    border-radius: 5px;
+    font-size: medium;
+    padding: 5px;
+  }
+
+  .button {
+    background-color: #d0ebf7;
+    border-color: #4287f5;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    padding: 5px;
   }
 </style>
 
 <body>
-  <h>Lab 1</h>
   <div class="container">
-    <div class="grid">
-      <div>
-        username:
-      </div>
-      <div>
-        <!-- 1. The necessity of "type" attribute for inout tags -->
-        <!-- it is used to assign a specific input type, password replaces the user input with dots -->
-        <input type="text" placeholder="username" />
-      </div>
-      <div>
-        password:
-      </div>
-      <div>
-        <input type="password" placeholder="password" />
-      </div>
-      <div>
-        <input type="button" value="login" />
-      </div>
+
+    <div class="child">
+      <!-- 1. The necessity of "type" attribute for inout tags -->
+      <!-- it is used to assign a specific input type, password replaces the user input with dots -->
+      <label>
+        Username
+      </label>
+      <input class="form" id="username" type="text" placeholder="username" />
     </div>
+
+    <div class="child">
+      <label>
+        Password
+      </label>
+      <input class="form" id="password" type="password" placeholder="password" />
+    </div>
+
+    <div class="buttonContainer child">
+      <input class="button" type="button" value="login" onclick="submit()" />
+    </div>
+
   </div>
+
+  <script type="text/javascript">
+    function submit() {
+      try {
+        evaluate();
+      } catch (e) {
+        alert(e);
+      }
+    }
+
+    function evaluate() {
+      let username = document.getElementById('username').value;
+      let password = document.getElementById('password').value;
+
+      if (username === "" || username === " " || password === " " || password === "") {
+        throw new Error('Username or Password is empty');
+      }
+
+      if (password.length < 3) {
+        throw new Error('Password is weak');
+      }
+
+      if (username === "admin" && password === "root") {
+        location.href = './home.html';
+      } else {
+        throw new Error('Wrong Username or Password');
+      }
+
+    } 
+  </script>
 
 </body>
 
