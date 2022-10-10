@@ -39,5 +39,7 @@ function loadUsers() {
   let first = document.getElementById('first-name').value;
   let last = document.getElementById('last-name').value;
 
+  if (first === '' || last === '') return;
+
   userList.insertAdjacentHTML('beforeend', makeListItem(first, last));
 }
